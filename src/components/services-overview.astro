@@ -1,0 +1,231 @@
+---
+// Services overview component for Arbo Servis
+import Branch from '@/assets/icons/branch.svg';
+import Stump from '@/assets/icons/stump.svg';
+import Carabiner from '@/assets/icons/carabiner.svg';
+import Helmet from '@/assets/icons/helmet.svg';
+---
+
+<section class="py-16 bg-green-50 lg:text-lg">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <h2 class="h2 font-playfair-display text-green-900 mb-4">Naše služby</h2>
+      <p class="text-lg text-green-700 max-w-3xl mx-auto">
+        Specializujeme se na komplexní péči o dřeviny a bezpečné řešení všech arboristických úkolů
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Kácení stromů -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 relative border-l-4 border-green-600 hover:shadow-xl transition-shadow duration-300"
+        data-aos="flip-up"
+      >
+        <div
+          class="absolute -top-4 -right-4 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center border-2 border-green-200"
+        >
+          <Branch class="w-8 h-8 text-green-600" />
+        </div>
+        <h3 class="text-xl font-semibold text-green-900 mb-4">Kácení stromů</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-green-700"
+              >Rizikového kácení stromů ohrožujících zdraví či majetek</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Komplexní ošetření dřevin -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 relative border-l-4 border-amber-600 hover:shadow-xl transition-shadow duration-300"
+        data-aos="flip-down"
+      >
+        <div
+          class="absolute -top-4 -right-4 w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center border-2 border-amber-200"
+        >
+          <Stump class="w-8 h-8 text-amber-600" />
+        </div>
+        <h3 class="text-xl font-semibold text-amber-900 mb-4">Komplexní ošetření dřevin</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-amber-700">Odstranění suchých větví, ořez jmelí</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-amber-700"
+              >Výchovný, zdravotní, redukční a bezpečnostní řez</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-amber-700"
+              >Bezpečnostní vazby (opatření proti rozlomení koruny)</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-amber-700">Ošetření dutin stromů</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Řešení havarijních situací -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 relative border-l-4 border-orange-600 hover:shadow-xl transition-shadow duration-300"
+        data-aos="flip-up"
+      >
+        <div
+          class="absolute -top-4 -right-4 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center border-2 border-orange-200"
+        >
+          <Helmet class="w-8 h-8 text-orange-600" />
+        </div>
+        <h3 class="text-xl font-semibold text-orange-900 mb-4">Řešení havarijních situací</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-orange-700"
+              >Případy, kdy je strom nalomený či zlomený např. působením silného větru</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-orange-700">Odklízení sněhu či námrazu</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Výškové práce -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 relative border-l-4 border-sky-600 hover:shadow-xl transition-shadow duration-300"
+        data-aos="flip-down"
+      >
+        <div
+          class="absolute -top-4 -right-4 w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center border-2 border-sky-200"
+        >
+          <Carabiner class="w-8 h-8 text-sky-600" />
+        </div>
+        <h3 class="text-xl font-semibold text-sky-900 mb-4">Výškové práce</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-sky-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-sky-700">Montáže konstrukcí ve výšce</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-sky-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-sky-700">Různé druhy oprav</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg
+              class="w-4 h-4 text-sky-500 mt-0.5 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-sky-700">Čištění okapů, střech, atd</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="/nabizene-sluzby"
+        class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+      >
+        Více informací
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

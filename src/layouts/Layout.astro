@@ -1,0 +1,58 @@
+---
+import Header from '@/components/ui/header.astro';
+import '@/styles/style.css';
+import Footer from '@/components/ui/footer.astro';
+import Animate from '@/components/animate.tsx';
+import SEO from '@/components/SEO.astro';
+
+// Import fonts using Astro's way
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+
+import '@fontsource-variable/playfair-display';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website';
+  author?: string;
+}
+
+const {
+  title = 'Arbo Servis - Rizikové kácení stromů a komplexní péče o dřeviny',
+  description = 'Jsme firma zabývající se komplxní péčí o dřeviny, kácením rizikových stromů včetně likvidace dřevní hmoty. Působíme v okresech Náchod, Rychnov nad Kněžnou a Hradec Králové.',
+  image,
+  canonicalURL,
+  type = 'website',
+  author,
+} = Astro.props;
+---
+
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      canonicalURL={canonicalURL}
+      type={type}
+      author={author}
+    />
+  </head>
+  <body class="font-inter antialiased bg-white text-slate-800 tracking-tight">
+    <div
+      class="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip relative"
+    >
+      <Animate client:load />
+      <Header />
+      <main class="grow">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

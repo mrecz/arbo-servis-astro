@@ -1,0 +1,40 @@
+---
+// Hero general component for Arbo Servis
+import HeroImage from '@/assets/images/hero-general-image.jpg';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<section class="relative">
+  <!-- Dark background -->
+  <div
+    class="absolute inset-0 bg-slate-900 pointer-events-none -z-10 mb-48 lg:mb-0 h-[30rem]"
+    aria-hidden="true"
+  >
+    <div class="w-full h-full" data-aos="fade">
+      <Image
+        src={HeroImage}
+        width={1440}
+        height={497}
+        alt="Hero background"
+        class="opacity-20 w-full h-full object-cover"
+      />
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="pt-32 md:pt-40">
+      <!-- Section header -->
+      <div class="max-w-3xl mx-auto text-center pb-16">
+        <h1 class="h1 font-playfair-display text-slate-100">{title}</h1>
+        {description && <p class="text-lg text-slate-100">{description}</p>}
+      </div>
+    </div>
+  </div>
+</section>

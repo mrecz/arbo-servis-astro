@@ -1,0 +1,14 @@
+---
+import HeroGeneral from '@/components/hero-general.astro';
+import Layout from '@/layouts/Layout.astro';
+import Contact from '@/components/contact.astro';
+const metadata = {
+  title: 'Arbo Servis - Kontakt',
+  description: 'Arbo Servis - Kontaktujte nás pro všechny vaše dotazy',
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <HeroGeneral title="Kde nás najdete" />
+  <Contact />
+</Layout>

@@ -1,0 +1,13 @@
+---
+// Logo component for Arbo Servis
+import { Image } from 'astro:assets';
+import LogoImage from '@/assets/images/as-logo.png';
+---
+
+<a
+  href="/"
+  class="block text-blue-600 transition duration-150 ease-in-out"
+  aria-label="Arbo Servis"
+>
+  <Image src={LogoImage} alt="Arbo Servis" width={100} height={100} />
+</a>

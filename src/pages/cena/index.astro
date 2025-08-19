@@ -1,0 +1,14 @@
+---
+import HeroGeneral from '@/components/hero-general.astro';
+import Layout from '@/layouts/Layout.astro';
+import PriceCalculation from '@/components/price-calculation.astro';
+const metadata = {
+  title: 'Arbo Servis - Cenová kalkulace',
+  description: 'Arbo Servis - Cenová kalkulace',
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <HeroGeneral title="Jak se stanovuje cena" />
+  <PriceCalculation />
+</Layout>

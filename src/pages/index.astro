@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroHome from '../components/hero-home.astro';
+import ServicesOverview from '../components/services-overview.astro';
+import Locations from '../components/locations.astro';
+export const metadata = {
+  title: 'Arbo Servis - Rizikové kácení stromů a komplexní péče o dřeviny',
+  description:
+    'Jsme firma zabývající se komplxní péčí o dřeviny, kácením rizikových stromů včetně likvidace dřevní hmoty. Působíme v okresech Náchod, Rychnov nad Kněžnou a Hradec Králové.',
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <HeroHome />
+  <Locations />
+  <ServicesOverview />
+</Layout>

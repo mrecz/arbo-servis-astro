@@ -1,0 +1,14 @@
+---
+import HeroGeneral from '@/components/hero-general.astro';
+import Layout from '@/layouts/Layout.astro';
+import AboutUs from '@/components/about-us.astro';
+const metadata = {
+  title: 'Arbo Servis - O nás',
+  description: 'Arbo Servis - Informace o naší firmě, vedené Ing. Janem Prostředníkem',
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <HeroGeneral title="O nás" />
+  <AboutUs />
+</Layout>

@@ -1,0 +1,176 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website';
+  author?: string;
+}
+
+const {
+  title = 'Arbo Servis - Rizikové kácení stromů a komplexní péče o dřeviny',
+  description = 'Jsme firma zabývající se komplexní péčí o dřeviny, kácením rizikových stromů včetně likvidace dřevní hmoty s 20 lety zkušeností. Působíme v okresech Náchod, Rychnov nad Kněžnou a Hradec Králové.',
+  image = '/src/assets/images/as-logo.png',
+  canonicalURL = Astro.url.href,
+  type = 'website',
+  author = 'Ing. Jan Prostředník',
+} = Astro.props;
+
+const siteName = 'Arbo Servis - Ing. Jan Prostředník';
+const siteURL = 'https://arbo-servis.cz';
+const fullImageURL = image.startsWith('http') ? image : `${siteURL}${image}`;
+const fullCanonicalURL = canonicalURL.startsWith('http')
+  ? canonicalURL
+  : `${siteURL}${canonicalURL}`;
+
+// Generate structured data for local business
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Arbo Servis',
+  description: description,
+  url: siteURL,
+  telephone: '+420732833212',
+  email: 'prostrednik.jan@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Jasenná 230',
+    postalCode: '552 22',
+    addressLocality: 'Jasenná',
+    addressCountry: 'CZ',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '50.4167',
+    longitude: '16.0167',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '16:00',
+    },
+  ],
+  serviceArea: {
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: '50.4167',
+      longitude: '16.0167',
+    },
+    geoRadius: '50000',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Arboristické služby',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Rizikové kácení stromů',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Komplexní péče o dřeviny',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Výškové práce',
+        },
+      },
+    ],
+  },
+  founder: {
+    '@type': 'Person',
+    name: 'Ing. Jan Prostředník',
+    jobTitle: 'Majitel firmy',
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Mendelova univerzita v Brně',
+    },
+  },
+  foundingDate: '2004',
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteURL}/src/assets/images/as-logo.png`,
+  },
+  image: {
+    '@type': 'ImageObject',
+    url: `${siteURL}/src/assets/images/as-logo.png`,
+  },
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={fullCanonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullCanonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageURL} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="cs_CZ" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={fullCanonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullImageURL} />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2f7d4f" />
+<meta name="msapplication-TileColor" content="#2f7d4f" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content={siteName} />
+
+<meta
+  name="keywords"
+  content="Arbo Servis, rizikové kácení stromů, komplexní péče o dřeviny, arboristické služby, kácení stromů Náchod, péče o dřeviny Rychnov nad Kněžnou, výškové práce Hradec Králové, havarijní kácení, ošetření stromů, bezpečnostní vazby, likvidace dřevní hmoty"
+/>
+
+<!-- Additional SEO Meta Tags -->
+<meta name="geo.region" content="CZ" />
+<meta name="geo.placename" content="Jasenná" />
+<meta name="geo.position" content="50.4167;16.0167" />
+<meta name="ICBM" content="50.4167, 16.0167" />
+<meta name="DC.title" content={title} />
+<meta name="DC.description" content={description} />
+<meta name="DC.creator" content={author} />
+<meta name="DC.language" content="cs" />
+<meta name="DC.coverage" content="Náchod, Rychnov nad Kněžnou, Hradec Králové" />
+<meta name="DC.subject" content="Arboristické služby, Kácení stromů, Péče o dřeviny" />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<!-- Preconnect to external domains for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Manifest -->
+<link rel="manifest" href="/site.webmanifest" />

@@ -1,0 +1,370 @@
+---
+import ReferenceImage1 from '@/assets/images/celba.jpg';
+import ReferenceImage2 from '@/assets/images/celba-behem.jpg';
+import ReferenceImage3 from '@/assets/images/Rychnovek5.jpg';
+import ReferenceImage4 from '@/assets/images/Zvole27.jpg';
+import { Image } from 'astro:assets';
+---
+
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <!-- Reference 1 -->
+      <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+          onclick="openLightbox('celba', 'Komplexní arboristické práce')"
+        >
+          <Image
+            src={ReferenceImage1}
+            alt="Reference práce - Celba"
+            width={400}
+            height={300}
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-semibold text-lg">Celba</h3>
+              <p class="text-stone-200 text-sm">Komplexní arboristické práce</p>
+            </div>
+          </div>
+          <!-- Badge -->
+          <div
+            class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium"
+          >
+            Dokončeno
+          </div>
+          <!-- Click indicator -->
+          <div
+            class="absolute top-4 left-4 bg-white/90 text-stone-700 px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            Klikněte pro zvětšení
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 2 -->
+      <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+          onclick="openLightbox('celba-behem', 'Práce v průběhu realizace')"
+        >
+          <Image
+            src={ReferenceImage2}
+            alt="Reference práce - Celba během realizace"
+            width={400}
+            height={300}
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-semibold text-lg">Celba - Průběh</h3>
+              <p class="text-stone-200 text-sm">Práce v průběhu realizace</p>
+            </div>
+          </div>
+          <!-- Badge -->
+          <div
+            class="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-medium"
+          >
+            V realizaci
+          </div>
+          <!-- Click indicator -->
+          <div
+            class="absolute top-4 left-4 bg-white/90 text-stone-700 px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            Klikněte pro zvětšení
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 3 -->
+      <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+        <div
+          class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+          onclick="openLightbox('rychnovek', 'Profesionální kácení stromů')"
+        >
+          <Image
+            src={ReferenceImage3}
+            alt="Reference práce - Rychnovek"
+            width={400}
+            height={300}
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-semibold text-lg">Rychnovek</h3>
+              <p class="text-stone-200 text-sm">Profesionální kácení stromů</p>
+            </div>
+          </div>
+          <!-- Badge -->
+          <div
+            class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium"
+          >
+            Dokončeno
+          </div>
+          <!-- Click indicator -->
+          <div
+            class="absolute top-4 left-4 bg-white/90 text-stone-700 px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            Klikněte pro zvětšení
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 4 -->
+      <div class="group relative" data-aos="fade-up" data-aos-delay="400">
+        <div
+          class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+          onclick="openLightbox('zvole', 'Výškové práce a ošetření')"
+        >
+          <Image
+            src={ReferenceImage4}
+            alt="Reference práce - Zvole"
+            width={400}
+            height={300}
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-semibold text-lg">Zvole</h3>
+              <p class="text-stone-200 text-sm">Výškové práce a ošetření</p>
+            </div>
+          </div>
+          <!-- Badge -->
+          <div
+            class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium"
+          >
+            Dokončeno
+          </div>
+          <!-- Click indicator -->
+          <div
+            class="absolute top-4 left-4 bg-white/90 text-stone-700 px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            Klikněte pro zvětšení
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
+    >
+      <div class="relative max-w-4xl max-h-full">
+        <!-- Close button -->
+        <button
+          onclick="closeLightbox()"
+          class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-200 z-10"
+        >
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Image container -->
+        <div class="relative">
+          <img
+            id="lightbox-image"
+            src=""
+            alt=""
+            class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+          />
+
+          <!-- Image info -->
+          <div class="absolute bottom-4 left-4 right-4 bg-black/70 text-white p-4 rounded-lg">
+            <h3 id="lightbox-title" class="text-xl font-semibold mb-2"></h3>
+            <p id="lightbox-description" class="text-stone-200"></p>
+          </div>
+        </div>
+
+        <!-- Navigation arrows -->
+        <button
+          onclick="navigateLightbox(-1)"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 bg-black/50 rounded-full p-2"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button
+          onclick="navigateLightbox(1)"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 bg-black/50 rounded-full p-2"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center">
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto border-t-4 border-green-600">
+        <h3 class="text-2xl font-bold text-stone-900 mb-4">
+          Chcete být naším dalším spokojeným klientem?
+        </h3>
+        <p class="text-stone-700 mb-6">
+          Kontaktujte nás a my vám připravíme profesionální řešení na míru vašim potřebám.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/kontakt"
+            class="inline-flex items-center px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+            Kontaktujte nás
+          </a>
+          <a
+            href="/zajem-o-sluzbu"
+            class="inline-flex items-center px-8 py-3 border-2 border-stone-300 text-stone-700 font-medium rounded-lg hover:border-stone-400 hover:bg-stone-50 transition-colors duration-200"
+          >
+            Zajímáte se o službu?
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Lightbox functionality
+  const lightboxImages = [
+    {
+      id: 'celba',
+      src: '/src/assets/images/celba.jpg',
+      title: 'Celba',
+      description: 'Komplexní arboristické práce',
+    },
+    {
+      id: 'celba-behem',
+      src: '/src/assets/images/celba-behem.jpg',
+      title: 'Celba - Průběh',
+      description: 'Práce v průběhu realizace',
+    },
+    {
+      id: 'rychnovek',
+      src: '/src/assets/images/Rychnovek5.jpg',
+      title: 'Rychnovek',
+      description: 'Profesionální kácení stromů',
+    },
+    {
+      id: 'zvole',
+      src: '/src/assets/images/Zvole27.jpg',
+      title: 'Zvole',
+      description: 'Výškové práce a ošetření',
+    },
+  ];
+
+  let currentImageIndex = 0;
+
+  function openLightbox(imageId, description) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDescription = document.getElementById('lightbox-description');
+
+    if (!lightbox || !lightboxImage || !lightboxTitle || !lightboxDescription) return;
+
+    // Find the image data
+    const imageData = lightboxImages.find(img => img.id === imageId);
+    if (imageData) {
+      currentImageIndex = lightboxImages.findIndex(img => img.id === imageId);
+      lightboxImage.src = imageData.src;
+      lightboxTitle.textContent = imageData.title;
+      lightboxDescription.textContent = imageData.description;
+    }
+
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  }
+
+  function navigateLightbox(direction) {
+    currentImageIndex =
+      (currentImageIndex + direction + lightboxImages.length) % lightboxImages.length;
+    const imageData = lightboxImages[currentImageIndex];
+
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDescription = document.getElementById('lightbox-description');
+
+    if (!lightboxImage || !lightboxTitle || !lightboxDescription) return;
+
+    lightboxImage.src = imageData.src;
+    lightboxTitle.textContent = imageData.title;
+    lightboxDescription.textContent = imageData.description;
+  }
+
+  // Close lightbox on escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  // Close lightbox when clicking outside the image
+  const lightboxElement = document.getElementById('lightbox');
+  if (lightboxElement) {
+    lightboxElement.addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function (e) {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.classList.contains('flex')) {
+      if (e.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateLightbox(1);
+      }
+    }
+  });
+</script>

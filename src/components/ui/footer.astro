@@ -1,0 +1,118 @@
+---
+// Footer component for Arbo Servis
+import Logo from './logo.astro';
+---
+
+<footer class="border-t border-slate-200 bg-stone-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Top area: Blocks -->
+    <div class="grid sm:grid-cols-12 gap-8 py-8 md:py-12">
+      <!-- 1st block -->
+      <div class="sm:col-span-12 lg:col-span-4 lg:max-w-xs">
+        <div class="mb-2">
+          <!-- Logo -->
+          <Logo />
+        </div>
+        <div class="text-xs font-bold text-slate-800">
+          Komplexní péče o dřeviny a rizikové kácení stromů v okresech Náchod, Rychnov nad Kněžnou a
+          Hradec Králové.
+        </div>
+      </div>
+
+      <!-- 2nd block -->
+      <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
+        <h6 class="text-sm text-slate-800 font-semibold mb-2">Služby</h6>
+        <ul class="text-sm font-medium space-y-2">
+          <li>
+            <a
+              href="/nabizene-sluzby"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >Nabízené služby</a
+            >
+          </li>
+          <li>
+            <a
+              href="/cena"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >Cena</a
+            >
+          </li>
+          <li>
+            <a
+              href="/reference"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >Reference</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3rd block -->
+      <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
+        <h6 class="text-sm text-slate-800 font-semibold mb-2">O nás</h6>
+        <ul class="text-sm font-medium space-y-2">
+          <li>
+            <a
+              href="/"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >Úvod</a
+            >
+          </li>
+          <li>
+            <a
+              href="/o-nas"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >O nás</a
+            >
+          </li>
+          <li>
+            <a
+              href="/zajem-o-sluzbu"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >Zajímáte se o službu?</a
+            >
+          </li>
+          <li>
+            <a
+              href="/kontakt"
+              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              >Kontakt</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4th block -->
+      <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
+        <h6 class="text-sm text-slate-800 font-semibold mb-2">Oblasti působnosti</h6>
+        <ul class="text-sm font-medium space-y-2">
+          <li>
+            <span class="text-slate-500">Okres Náchod</span>
+          </li>
+          <li>
+            <span class="text-slate-500">Okres Rychnov nad Kněžnou</span>
+          </li>
+          <li>
+            <span class="text-slate-500">Okres Hradec Králové</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom area -->
+    <div class="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-slate-200">
+      <!-- Copyrights note -->
+      <div class="text-sm text-slate-500 mr-4">
+        © <span id="current-year"></span> Arbo Servis. Všechna práva vyhrazena.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Update the year dynamically
+  const currentYear = document.getElementById('current-year');
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear().toString();
+  }
+</script>

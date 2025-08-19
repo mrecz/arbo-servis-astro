@@ -1,0 +1,68 @@
+---
+// Hero component for Arbo Servis homepage
+import HeroImage from '@/assets/images/hero-image.jpg';
+import HeroImageBG from '@/assets/images/hero-general-image.jpg';
+import { Image } from 'astro:assets';
+---
+
+<section class="relative">
+  <!-- Dark background -->
+  <div
+    class="absolute inset-0 bg-slate-900 pointer-events-none -z-10 [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]"
+    aria-hidden="true"
+  >
+    <div class="w-full h-full" data-aos="fade">
+      <Image
+        src={HeroImageBG}
+        width={1440}
+        height={497}
+        alt="Hero background"
+        class="opacity-20 w-full h-full object-cover"
+      />
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="pt-32 pb-20 md:pt-40 md:pb-44">
+      <!-- Hero content -->
+      <div
+        class="max-w-xl mx-auto md:max-w-none md:flex md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-16 md:space-y-0"
+        data-aos="flip-left"
+      >
+        <!-- Content -->
+        <div class="text-center md:text-left md:min-w-[30rem]" data-aos="fade-right">
+          <h1 class="h1 font-playfair-display text-slate-100 mb-4">
+            Komplexní péče o dřeviny a rizikové kácení stromů
+          </h1>
+          <p class="text-xl text-slate-400 mb-8">
+            Profesionální arboristické služby. Specializujeme se na bezpečné kácení rizikových
+            stromů a komplexní péči o dřeviny.
+          </p>
+          <div
+            class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <a
+              href="/zajem-o-sluzbu"
+              class="btn text-white bg-green-600 hover:bg-green-700 w-full sm:w-auto sm:mb-0"
+            >
+              Zajímáte se o službu?
+            </a>
+            <a
+              href="/kontakt"
+              class="btn text-slate-300 border-slate-600 hover:border-slate-500 w-full sm:w-auto sm:mb-0"
+            >
+              Kontaktujte nás
+            </a>
+          </div>
+        </div>
+        <Image
+          src={HeroImage}
+          alt="Hero Image"
+          width={600}
+          height={338}
+          class="rounded-lg shadow-2xl [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]"
+        />
+      </div>
+    </div>
+  </div>
+</section>
