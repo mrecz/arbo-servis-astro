@@ -6,24 +6,24 @@ import WorkInHeight from '@/assets/images/work-in-height.jpg';
 import { Image } from 'astro:assets';
 ---
 
-<section class="py-16">
+<section class="pb-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <!-- Kácení stromů -->
     <div class="mb-20">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="order-2 lg:order-1" data-aos="fade-right">
-          <div class="bg-green-50 rounded-lg p-8 border-l-4 border-green-600">
-            <h3 class="text-3xl font-bold text-green-900 mb-6">Kácení stromů</h3>
+          <div class="bg-carmine-50 rounded-lg p-8 border-l-4 border-carmine-600">
+            <h3 class="text-3xl font-bold text-carmine-900 mb-6">Kácení stromů</h3>
             <p class="text-stone-700 mb-6">
               Specializujeme se na bezpečné a profesionální kácení stromů, které představují riziko
-              pro zdraví lidí nebo majetek.
+              pro zdraví osob, zvířat či majetku.
             </p>
             <div class="space-y-4">
               <div class="flex items-start gap-3">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  class="w-6 h-6 bg-carmine-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                 >
-                  <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-3 h-3 text-carmine-600" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -31,15 +31,15 @@ import { Image } from 'astro:assets';
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-green-900">Rizikové kácení</h4>
+                  <h4 class="font-semibold text-carmine-900">Rizikové kácení</h4>
                   <p class="text-sm text-stone-600">Kácení stromů ohrožujících zdraví či majetek</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  class="w-6 h-6 bg-carmine-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                 >
-                  <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-3 h-3 text-carmine-600" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -47,15 +47,15 @@ import { Image } from 'astro:assets';
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-green-900">Bezpečnostní opatření</h4>
+                  <h4 class="font-semibold text-carmine-900">Bezpečnostní opatření</h4>
                   <p class="text-sm text-stone-600">Kompletní zabezpečení pracoviště a okolí</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  class="w-6 h-6 bg-carmine-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                 >
-                  <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-3 h-3 text-carmine-600" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -63,14 +63,17 @@ import { Image } from 'astro:assets';
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-green-900">Likvidace dřevní hmoty</h4>
+                  <h4 class="font-semibold text-carmine-900">Likvidace dřevní hmoty</h4>
                   <p class="text-sm text-stone-600">Kompletní úklid a odvoz dřevní hmoty</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="order-1 lg:order-2" data-aos="fade-left">
+        <div
+          class="order-1 lg:order-2 sm:flex sm:flex-col sm:items-center xl:block"
+          data-aos="fade-left"
+        >
           <Image
             src={TreeCutting}
             alt="Kácení stromů"
@@ -85,7 +88,7 @@ import { Image } from 'astro:assets';
     <!-- Komplexní ošetření dřevin -->
     <div class="mb-20">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
+        <div data-aos="fade-right" class="sm:flex sm:flex-col sm:items-center xl:block">
           <Image
             src={TreeCare}
             alt="Komplexní ošetření dřevin"
@@ -95,18 +98,17 @@ import { Image } from 'astro:assets';
           />
         </div>
         <div data-aos="fade-left">
-          <div class="bg-amber-50 rounded-lg p-8 border-l-4 border-amber-600">
-            <h3 class="text-3xl font-bold text-amber-900 mb-6">Komplexní ošetření dřevin</h3>
+          <div class="bg-latte-50 rounded-lg p-8 border-l-4 border-latte-600">
+            <h3 class="text-3xl font-bold text-latte-900 mb-6">Komplexní ošetření dřevin</h3>
             <p class="text-stone-700 mb-6">
-              Poskytujeme komplexní péči o dřeviny včetně řezů, ošetření dutin a bezpečnostních
-              opatření.
+              Poskytujeme komplexní péči o dřeviny včetně řezů a bezpečnostních opatření.
             </p>
             <div class="space-y-4">
               <div class="flex items-start gap-3">
                 <div
-                  class="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  class="w-6 h-6 bg-latte-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                 >
-                  <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-3 h-3 text-latte-600" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -114,15 +116,15 @@ import { Image } from 'astro:assets';
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-amber-900">Výchovný a zdravotní řez</h4>
+                  <h4 class="font-semibold text-latte-900">Výchovný a zdravotní řez</h4>
                   <p class="text-sm text-stone-600">Ořez suchých větví a ošetření jmelí</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <div
-                  class="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  class="w-6 h-6 bg-latte-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                 >
-                  <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-3 h-3 text-latte-600" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -130,24 +132,8 @@ import { Image } from 'astro:assets';
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-amber-900">Bezpečnostní vazby</h4>
+                  <h4 class="font-semibold text-latte-900">Bezpečnostní vazby</h4>
                   <p class="text-sm text-stone-600">Opatření proti rozlomení koruny</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div
-                  class="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                >
-                  <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-amber-900">Ošetření dutin</h4>
-                  <p class="text-sm text-stone-600">Profesionální ošetření dutin stromů</p>
                 </div>
               </div>
             </div>
@@ -218,7 +204,10 @@ import { Image } from 'astro:assets';
             </div>
           </div>
         </div>
-        <div class="order-1 lg:order-2" data-aos="fade-left">
+        <div
+          class="order-1 lg:order-2 sm:flex sm:flex-col sm:items-center xl:block"
+          data-aos="fade-left"
+        >
           <Image
             src={FallenTree}
             alt="Řešení havarijních situací"
@@ -233,7 +222,7 @@ import { Image } from 'astro:assets';
     <!-- Výškové práce -->
     <div class="mb-20">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
+        <div data-aos="fade-right" class="sm:flex sm:flex-col sm:items-center xl:block">
           <Image
             src={WorkInHeight}
             alt="Výškové práce"
@@ -314,7 +303,7 @@ import { Image } from 'astro:assets';
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/zajem-o-sluzbu"
-          class="inline-flex items-center px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+          class="inline-flex items-center px-8 py-3 bg-carmine-700 text-white font-medium rounded-lg hover:bg-carmine-800 transition-colors duration-200"
         >
           Zajímáte se o službu?
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

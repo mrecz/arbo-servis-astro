@@ -1,7 +1,10 @@
 ---
 // Logo component for Arbo Servis
 import { Image } from 'astro:assets';
-import LogoImage from '@/assets/images/as-logo.png';
+import LogoImageWhite from '@/assets/images/arbo-logo-white.svg';
+import LogoImage from '@/assets/images/arbo-logo.svg';
+
+const { logo = 'white' } = Astro.props;
 ---
 
 <a
@@ -9,5 +12,10 @@ import LogoImage from '@/assets/images/as-logo.png';
   class="block text-blue-600 transition duration-150 ease-in-out"
   aria-label="Arbo Servis"
 >
-  <Image src={LogoImage} alt="Arbo Servis" width={100} height={100} />
+  <Image
+    src={logo === 'white' ? LogoImageWhite : LogoImage}
+    alt="Arbo Servis"
+    width={100}
+    height={100}
+  />
 </a>

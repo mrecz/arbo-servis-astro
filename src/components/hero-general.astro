@@ -1,6 +1,7 @@
 ---
 // Hero general component for Arbo Servis
 import HeroImage from '@/assets/images/hero-general-image.jpg';
+import TreeIllustration from '@/assets/images/tree-illustration-color.svg';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -14,7 +15,7 @@ const { title, description } = Astro.props;
 <section class="relative">
   <!-- Dark background -->
   <div
-    class="absolute inset-0 bg-slate-900 pointer-events-none -z-10 mb-48 lg:mb-0 h-[30rem]"
+    class="absolute inset-0 bg-grey-950 pointer-events-none -z-10 mb-48 lg:mb-0 h-[30rem]"
     aria-hidden="true"
   >
     <div class="w-full h-full" data-aos="fade">
@@ -23,7 +24,7 @@ const { title, description } = Astro.props;
         width={1440}
         height={497}
         alt="Hero background"
-        class="opacity-20 w-full h-full object-cover"
+        class="opacity-10 w-full h-full object-cover"
       />
     </div>
   </div>
@@ -32,8 +33,19 @@ const { title, description } = Astro.props;
     <div class="pt-32 md:pt-40">
       <!-- Section header -->
       <div class="max-w-3xl mx-auto text-center pb-16">
-        <h1 class="h1 font-playfair-display text-slate-100">{title}</h1>
-        {description && <p class="text-lg text-slate-100">{description}</p>}
+        <!-- Main heading with tree integration -->
+        <div class="flex flex-row justify-center items-center">
+          <TreeIllustration class="h-32 w-12 lg:h-48 lg:w-24 text-latte-200 opacity-50" />
+          <div class="z-10">
+            <h1 class="h1 font-playfair-display text-grey-100 relative">
+              {title}
+            </h1>
+            {description && <p class="text-lg text-grey-100 mt-6">{description}</p>}
+          </div>
+          <TreeIllustration
+            class="h-32 w-12 lg:h-48 lg:w-24 text-latte-200 transform scale-x-[-1] opacity-50"
+          />
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,14 @@
+---
+import HeroGeneral from '@/components/hero-general.astro';
+import Layout from '@/layouts/Layout.astro';
+import Certificates from '@/components/certificates.astro';
+const metadata = {
+  title: 'Arbo Servis - Osvědčení',
+  description: 'Arbo Servis - Získané osvedčení, certikáty, kurzy a vzdělávání',
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <HeroGeneral title="Osvědčení" />
+  <Certificates />
+</Layout>

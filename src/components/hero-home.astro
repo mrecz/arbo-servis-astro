@@ -8,7 +8,7 @@ import { Image } from 'astro:assets';
 <section class="relative">
   <!-- Dark background -->
   <div
-    class="absolute inset-0 bg-slate-900 pointer-events-none -z-10 [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]"
+    class="absolute inset-0 bg-grey-950 pointer-events-none -z-10 [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]"
     aria-hidden="true"
   >
     <div class="w-full h-full" data-aos="fade">
@@ -17,7 +17,7 @@ import { Image } from 'astro:assets';
         width={1440}
         height={497}
         alt="Hero background"
-        class="opacity-20 w-full h-full object-cover"
+        class="opacity-10 w-full h-full object-cover"
       />
     </div>
   </div>
@@ -31,10 +31,11 @@ import { Image } from 'astro:assets';
       >
         <!-- Content -->
         <div class="text-center md:text-left md:min-w-[30rem]" data-aos="fade-right">
-          <h1 class="h1 font-playfair-display text-slate-100 mb-4">
+          <h1 class="h1 font-playfair-display mb-4 font-bold text-carmine-800">arbo-servis.cz</h1>
+          <h2 class="h2 font-playfair-display text-grey-100 mb-4">
             Komplexní péče o dřeviny a rizikové kácení stromů
-          </h1>
-          <p class="text-xl text-slate-400 mb-8">
+          </h2>
+          <p class="text-xl text-grey-400 mb-8">
             Profesionální arboristické služby. Specializujeme se na bezpečné kácení rizikových
             stromů a komplexní péči o dřeviny.
           </p>
@@ -43,13 +44,13 @@ import { Image } from 'astro:assets';
           >
             <a
               href="/zajem-o-sluzbu"
-              class="btn text-white bg-green-600 hover:bg-green-700 w-full sm:w-auto sm:mb-0"
+              class="btn text-white bg-carmine-700 hover:bg-carmine-800 w-full sm:w-auto sm:mb-0"
             >
               Zajímáte se o službu?
             </a>
             <a
               href="/kontakt"
-              class="btn text-slate-300 border-slate-600 hover:border-slate-500 w-full sm:w-auto sm:mb-0"
+              class="btn text-grey-300 border-grey-600 hover:border-grey-500 w-full sm:w-auto sm:mb-0"
             >
               Kontaktujte nás
             </a>

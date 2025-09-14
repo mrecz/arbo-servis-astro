@@ -91,6 +91,12 @@ input[type='search']::-webkit-search-results-decoration {
   scrollbar-width: none; /* Firefox */
 }
 
+.small-iframe {
+  @apply w-full border-0 rounded-lg shadow-lg;
+  height: 300px;
+  width: 400px;
+}
+
 .responsive-iframe {
   @apply w-full max-w-full border-0 rounded-lg shadow-lg;
   height: 400px;

@@ -13,6 +13,47 @@
 @theme {
   /* Nature-inspired color palette for arborist services */
 
+  /* Company Colors - Enhanced Palette */
+
+  /* Latte Shades - Warm, earthy beige tones */
+  --color-latte-50: #faf9f7;
+  --color-latte-100: #f5f2ed;
+  --color-latte-200: #eae4dc;
+  --color-latte-300: #dcd2c4;
+  --color-latte-400: #c6baaf; /* original: #c6baaf */
+  --color-latte-500: #b5a699;
+  --color-latte-600: #a08f7f;
+  --color-latte-700: #8a7665;
+  --color-latte-800: #6d5d50;
+  --color-latte-900: #5a4d42;
+  --color-latte-950: #2f2822;
+
+  /* Grey Shades - Professional, sophisticated tones */
+  --color-grey-50: #f7f6f5;
+  --color-grey-100: #edeae7;
+  --color-grey-200: #d9d4ce;
+  --color-grey-300: #c2b9b0;
+  --color-grey-400: #a69c91;
+  --color-grey-500: #8a7f73;
+  --color-grey-600: #6d6257;
+  --color-grey-700: #59514b; /* original: #59514b */
+  --color-grey-800: #4a433d;
+  --color-grey-900: #3d3732;
+  --color-grey-950: #1f1c19;
+
+  /* Carmine Shades - Rich, deep red tones */
+  --color-carmine-50: #fef2f2;
+  --color-carmine-100: #fde6e6;
+  --color-carmine-200: #fbd0d0;
+  --color-carmine-300: #f7a8a8;
+  --color-carmine-400: #f17575;
+  --color-carmine-500: #e74c4c;
+  --color-carmine-600: #d32f2f;
+  --color-carmine-700: #b71c1c;
+  --color-carmine-800: #8d1f20; /* original: #8d1f20 */
+  --color-carmine-900: #6b1617;
+  --color-carmine-950: #3d0c0d;
+
   /* Primary Greens - Tree and Nature Colors */
   --color-green-50: #f0f9f4;
   --color-green-100: #dcf2e3;

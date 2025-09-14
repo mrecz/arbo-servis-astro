@@ -3,7 +3,7 @@ import AboutImage from '@/assets/images/jan.prostrednik.jpg';
 import { Image } from 'astro:assets';
 ---
 
-<section class="py-16 lg:text-lg">
+<section class="pb-16 lg:text-lg">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <!-- Main Content -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -23,22 +23,12 @@ import { Image } from 'astro:assets';
             <div class="absolute inset-0 bg-gradient-to-t from-stone-900/20 to-transparent"></div>
           </div>
 
-          <!-- Floating Badge -->
-          <div
-            class="absolute -bottom-6 -right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg"
-          >
-            <div class="text-center">
-              <div class="text-sm font-medium">Certifikovaný arborista</div>
-              <div class="text-xs opacity-90">Mendelova univerzita</div>
-            </div>
-          </div>
-
           <!-- Decorative Elements -->
           <div
-            class="absolute -top-4 -left-4 w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center shadow-lg"
+            class="absolute -top-4 -left-4 w-16 h-16 bg-latte-300 rounded-full flex items-center justify-center shadow-lg"
           >
             <svg
-              class="w-8 h-8 text-amber-600"
+              class="w-8 h-8 text-latte-800"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -51,22 +41,106 @@ import { Image } from 'astro:assets';
             </svg>
           </div>
         </div>
+        <!-- Owner Information -->
+        <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-latte-600 mt-4">
+          <div class="flex items-start gap-4 mb-6">
+            <div
+              class="w-16 h-16 bg-latte-300 rounded-full flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-8 h-8 text-latte-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-latte-900">Ing. Jan Prostředník</h3>
+              <p class="text-latte-700 font-medium">Majitel firmy</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 bg-latte-300 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg class="w-3 h-3 text-latte-800" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-latte-900">Vzdělání</h4>
+                <p class="text-sm text-stone-600">
+                  Absolvent Lesnické a dřevařské fakulty na Mendelově univerzitě v Brně
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 bg-latte-300 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg class="w-3 h-3 text-latte-800" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-latte-900">Zkušenosti</h4>
+                <p class="text-sm text-stone-600">
+                  Dřevem, ať už zpracováním nebo prvovýrobou se zabývá více než 20 let
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 bg-latte-300 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg class="w-3 h-3 text-latte-800" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-latte-900">Vášeň pro práci</h4>
+                <p class="text-sm text-stone-600">
+                  Práce ho stále těší a přináší mu osobní uspokojení
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Content Section -->
       <div data-aos="fade-left">
         <div class="space-y-8">
           <!-- Company Description -->
-          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
-            <h3 class="text-2xl font-bold text-green-900 mb-6">Naše firma</h3>
+          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-carmine-700">
+            <h3 class="text-2xl font-bold text-carmine-900 mb-6">Naše firma</h3>
             <p class="text-stone-700 leading-relaxed mb-6">
               Jsme firma zabývající se komplexní péčí o dřeviny, kácením rizikových stromů včetně
               likvidace dřevní hmoty. Působíme v okresech Náchod, Rychnov nad Kněžnou a Hradec
               Králové.
             </p>
-            <div class="flex items-center gap-3 p-4 bg-green-50 rounded-lg">
+            <div class="flex items-center gap-3 p-4 bg-carmine-50 rounded-lg">
               <svg
-                class="w-6 h-6 text-green-600 flex-shrink-0"
+                class="w-6 h-6 text-carmine-600 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -77,106 +151,22 @@ import { Image } from 'astro:assets';
                   stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span class="text-green-900 font-medium">Pojištění odpovědnosti je samozřejmostí</span
+              <span class="text-carmine-900 font-medium"
+                >Pojištění odpovědnosti je samozřejmostí</span
               >
-            </div>
-          </div>
-
-          <!-- Owner Information -->
-          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-amber-600">
-            <div class="flex items-start gap-4 mb-6">
-              <div
-                class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0"
-              >
-                <svg
-                  class="w-8 h-8 text-amber-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-2xl font-bold text-amber-900">Ing. Jan Prostředník</h3>
-                <p class="text-amber-700 font-medium">Majitel firmy</p>
-              </div>
-            </div>
-
-            <div class="space-y-4">
-              <div class="flex items-start gap-3">
-                <div
-                  class="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                >
-                  <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-medium text-amber-900">Vzdělání</h4>
-                  <p class="text-sm text-stone-600">
-                    Absolvent Lesnické a dřevařské fakulty na Mendelově univerzitě v Brně
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div
-                  class="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                >
-                  <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-medium text-amber-900">Zkušenosti</h4>
-                  <p class="text-sm text-stone-600">
-                    Dřevem, ať už zpracováním nebo prvovýrobou se zabývá více než 20 let
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div
-                  class="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                >
-                  <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-medium text-amber-900">Vášeň pro práci</h4>
-                  <p class="text-sm text-stone-600">
-                    Práce ho stále těší a přináší mu osobní uspokojení
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 
           <!-- Service Areas -->
-          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-sky-600">
-            <h3 class="text-xl font-bold text-sky-900 mb-4">Působnost</h3>
+          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-grey-600">
+            <h3 class="text-xl font-bold text-grey-900 mb-4">Působnost</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div class="text-center p-4 bg-sky-50 rounded-lg">
+              <div class="text-center p-4 bg-grey-50 rounded-lg">
                 <div
-                  class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-2"
+                  class="w-12 h-12 bg-grey-100 rounded-full flex items-center justify-center mx-auto mb-2"
                 >
                   <svg
-                    class="w-6 h-6 text-sky-600"
+                    class="w-6 h-6 text-grey-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -194,14 +184,14 @@ import { Image } from 'astro:assets';
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </div>
-                <div class="font-medium text-sky-900">Okres Náchod</div>
+                <div class="font-medium text-grey-900">Okres Náchod</div>
               </div>
-              <div class="text-center p-4 bg-sky-50 rounded-lg">
+              <div class="text-center p-4 bg-grey-50 rounded-lg">
                 <div
-                  class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-2"
+                  class="w-12 h-12 bg-grey-100 rounded-full flex items-center justify-center mx-auto mb-2"
                 >
                   <svg
-                    class="w-6 h-6 text-sky-600"
+                    class="w-6 h-6 text-grey-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -219,14 +209,14 @@ import { Image } from 'astro:assets';
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </div>
-                <div class="font-medium text-sky-900">Okres Rychnov nad Kněžnou</div>
+                <div class="font-medium text-grey-900">Okres Rychnov nad Kněžnou</div>
               </div>
-              <div class="text-center p-4 bg-sky-50 rounded-lg">
+              <div class="text-center p-4 bg-grey-50 rounded-lg">
                 <div
-                  class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-2"
+                  class="w-12 h-12 bg-grey-100 rounded-full flex items-center justify-center mx-auto mb-2"
                 >
                   <svg
-                    class="w-6 h-6 text-sky-600"
+                    class="w-6 h-6 text-grey-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -244,7 +234,7 @@ import { Image } from 'astro:assets';
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </div>
-                <div class="font-medium text-sky-900">Okres Hradec Králové</div>
+                <div class="font-medium text-grey-900">Okres Hradec Králové</div>
               </div>
             </div>
           </div>
@@ -254,7 +244,9 @@ import { Image } from 'astro:assets';
 
     <!-- Call to Action -->
     <div class="text-center mt-16">
-      <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto border-t-4 border-green-600">
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto border-t-4 border-carmine-700"
+      >
         <h3 class="text-2xl font-bold text-stone-900 mb-4">Spolupracujte s odborníky</h3>
         <p class="text-stone-700 mb-6">
           S více než 20letou zkušeností vám garantujeme profesionální přístup a kvalitní výsledky.
@@ -262,7 +254,7 @@ import { Image } from 'astro:assets';
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/kontakt"
-            class="inline-flex items-center px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+            class="inline-flex items-center px-8 py-3 bg-carmine-700 text-white font-medium rounded-lg hover:bg-carmine-800 transition-colors duration-200"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path

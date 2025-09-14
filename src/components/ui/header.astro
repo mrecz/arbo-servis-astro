@@ -9,12 +9,12 @@ interface Props {
 const { mode = 'dark' } = Astro.props;
 ---
 
-<header class={`absolute w-full z-30 ${mode !== 'light' && 'dark'}`}>
+<header id="header" class={`absolute top-0 w-full z-30 ${mode !== 'light' && 'dark'}`}>
   <div class="max-w-6xl mx-auto px-5 sm:px-6">
     <div class="flex items-center justify-between h-28 md:h-40">
       <!-- Site branding -->
       <div class="shrink-0 mr-4">
-        <Logo />
+        <Logo logo="white" />
       </div>
 
       <!-- Desktop navigation -->
@@ -24,43 +24,50 @@ const { mode = 'dark' } = Astro.props;
           <li>
             <a
               href="/"
-              class="font-medium text-slate-800 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
               >Úvod</a
             >
           </li>
           <li>
             <a
               href="/nabizene-sluzby"
-              class="font-medium text-slate-800 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
               >Nabízené služby</a
             >
           </li>
           <li>
             <a
               href="/zajem-o-sluzbu"
-              class="font-medium text-slate-800 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
               >Zajímáte se o službu?</a
             >
           </li>
           <li>
             <a
               href="/o-nas"
-              class="font-medium text-slate-800 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
               >O nás</a
             >
           </li>
           <li>
             <a
               href="/cena"
-              class="font-medium text-slate-800 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
               >Cena</a
             >
           </li>
           <li>
             <a
               href="/reference"
-              class="font-medium text-slate-800 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
               >Reference</a
+            >
+          </li>
+          <li>
+            <a
+              href="/osvedceni"
+              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+              >Osvědčení</a
             >
           </li>
         </ul>
@@ -70,10 +77,10 @@ const { mode = 'dark' } = Astro.props;
           <li>
             <a
               href="/kontakt"
-              class="font-medium text-green-600 dark:text-slate-300 dark:hover:text-white px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out group bg-green-600/10 rounded-full"
+              class="font-medium text-carmine-600 dark:text-latte-300 dark:hover:text-white px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out group bg-latte-600/10 rounded-full"
             >
               Kontakt <span
-                class="tracking-normal text-green-600 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"
+                class="tracking-normal text-carmine-600 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"
                 >-&gt;</span
               >
             </a>
@@ -85,3 +92,44 @@ const { mode = 'dark' } = Astro.props;
     </div>
   </div>
 </header>
+
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function () {
+    const header = document.getElementById('header');
+
+    if (!header) return;
+
+    // Add background to header when scrolled
+    function handleScroll() {
+      if (window.scrollY > 150) {
+        header.classList.add(
+          'bg-grey-950/80',
+          'backdrop-blur-sm',
+          'border-b',
+          'border-grey-200/50',
+          'sticky'
+        );
+        // Also add dark mode background if needed
+        if (header.classList.contains('dark')) {
+          header.classList.add('dark:bg-grey-950/95', 'dark:border-grey-700/50');
+        }
+      } else {
+        header.classList.remove(
+          'sticky',
+          'bg-grey-950/80',
+          'backdrop-blur-sm',
+          'border-b',
+          'border-grey-200/50'
+        );
+        header.classList.remove('dark:bg-grey-950/95', 'dark:border-grey-700/50');
+      }
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Check initial scroll position
+    handleScroll();
+  });
+</script>

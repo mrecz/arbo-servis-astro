@@ -3,7 +3,7 @@
 import Logo from './logo.astro';
 ---
 
-<footer class="border-t border-slate-200 bg-stone-50">
+<footer class="border-t border-grey-200 bg-stone-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <!-- Top area: Blocks -->
     <div class="grid sm:grid-cols-12 gap-8 py-8 md:py-12">
@@ -11,9 +11,9 @@ import Logo from './logo.astro';
       <div class="sm:col-span-12 lg:col-span-4 lg:max-w-xs">
         <div class="mb-2">
           <!-- Logo -->
-          <Logo />
+          <Logo logo="black" />
         </div>
-        <div class="text-xs font-bold text-slate-800">
+        <div class="text-xs font-bold text-grey-800">
           Komplexní péče o dřeviny a rizikové kácení stromů v okresech Náchod, Rychnov nad Kněžnou a
           Hradec Králové.
         </div>
@@ -26,22 +26,29 @@ import Logo from './logo.astro';
           <li>
             <a
               href="/nabizene-sluzby"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >Nabízené služby</a
             >
           </li>
           <li>
             <a
               href="/cena"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >Cena</a
             >
           </li>
           <li>
             <a
               href="/reference"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >Reference</a
+            >
+          </li>
+          <li>
+            <a
+              href="/osvedceni"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
+              >Osvědčení</a
             >
           </li>
         </ul>
@@ -54,28 +61,28 @@ import Logo from './logo.astro';
           <li>
             <a
               href="/"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >Úvod</a
             >
           </li>
           <li>
             <a
               href="/o-nas"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >O nás</a
             >
           </li>
           <li>
             <a
               href="/zajem-o-sluzbu"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >Zajímáte se o službu?</a
             >
           </li>
           <li>
             <a
               href="/kontakt"
-              class="text-slate-500 hover:text-green-600 transition duration-150 ease-in-out"
+              class="text-grey-500 hover:text-carmine-800 transition duration-150 ease-in-out"
               >Kontakt</a
             >
           </li>
@@ -84,25 +91,25 @@ import Logo from './logo.astro';
 
       <!-- 4th block -->
       <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-        <h6 class="text-sm text-slate-800 font-semibold mb-2">Oblasti působnosti</h6>
+        <h6 class="text-sm text-grey-800 font-semibold mb-2">Oblasti působnosti</h6>
         <ul class="text-sm font-medium space-y-2">
           <li>
-            <span class="text-slate-500">Okres Náchod</span>
+            <span class="text-grey-500">Okres Náchod</span>
           </li>
           <li>
-            <span class="text-slate-500">Okres Rychnov nad Kněžnou</span>
+            <span class="text-grey-500">Okres Rychnov nad Kněžnou</span>
           </li>
           <li>
-            <span class="text-slate-500">Okres Hradec Králové</span>
+            <span class="text-grey-500">Okres Hradec Králové</span>
           </li>
         </ul>
       </div>
     </div>
 
     <!-- Bottom area -->
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-slate-200">
+    <div class="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-grey-200">
       <!-- Copyrights note -->
-      <div class="text-sm text-slate-500 mr-4">
+      <div class="text-sm text-grey-500 mr-4">
         © <span id="current-year"></span> Arbo Servis. Všechna práva vyhrazena.
       </div>
     </div>

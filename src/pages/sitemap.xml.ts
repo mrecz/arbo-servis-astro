@@ -10,6 +10,7 @@ export async function GET() {
     '/cena',
     '/reference',
     '/kontakt',
+    '/osvedceni',
   ];
 
   // Create sitemap entries

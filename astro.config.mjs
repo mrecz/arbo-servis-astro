@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://arbo-servis.cz',
   integrations: [
     react(),
     sitemap({
@@ -20,4 +21,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  output: 'static',
 });
