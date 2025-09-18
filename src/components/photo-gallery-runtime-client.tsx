@@ -7,10 +7,8 @@ import '../styles/gallery.css';
 interface GalleryItem {
   name: string;
   path: string;
-  size: number;
   modified: string;
   type: 'image' | 'video';
-  thumbnail?: string;
 }
 
 interface PhotoData {

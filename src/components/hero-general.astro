@@ -35,16 +35,16 @@ const { title, description } = Astro.props;
       <div class="max-w-3xl mx-auto text-center pb-16">
         <!-- Main heading with tree integration -->
         <div class="flex flex-row justify-center items-center">
-          <TreeIllustration class="h-32 w-12 lg:h-48 lg:w-24 text-latte-200 opacity-50" />
+          <TreeIllustration
+            class="h-32 w-12 lg:h-48 lg:w-24 text-latte-200 transform scale-x-[-1] opacity-50"
+          />
           <div class="z-10">
-            <h1 class="h1 font-playfair-display text-grey-100 relative">
+            <h1 class="h1 font-montserrat tracking-wider text-grey-100 relative">
               {title}
             </h1>
             {description && <p class="text-lg text-grey-100 mt-6">{description}</p>}
           </div>
-          <TreeIllustration
-            class="h-32 w-12 lg:h-48 lg:w-24 text-latte-200 transform scale-x-[-1] opacity-50"
-          />
+          <TreeIllustration class="h-32 w-12 lg:h-48 lg:w-24 text-latte-200 opacity-50" />
         </div>
       </div>
     </div>

@@ -7,67 +7,103 @@ interface Props {
 }
 
 const { mode = 'dark' } = Astro.props;
+
+// Get current page path for active state
+const currentPath = Astro.url.pathname;
+
+// Helper function to check if a menu item is active
+function isActive(path: string): boolean {
+  if (path === '/' && currentPath === '/') return true;
+  if (path !== '/' && currentPath.startsWith(path)) return true;
+  return false;
+}
 ---
 
-<header id="header" class={`absolute top-0 w-full z-30 ${mode !== 'light' && 'dark'}`}>
-  <div class="max-w-6xl mx-auto px-5 sm:px-6">
-    <div class="flex items-center justify-between h-28 md:h-40">
+<header id="header" class={`fixed top-0 w-full z-30 ${mode !== 'light' && 'dark'}`}>
+  <div class="max-w-[85rem] mx-auto px-5 sm:px-6">
+    <div class="flex items-center justify-between h-28 lg:h-40">
       <!-- Site branding -->
       <div class="shrink-0 mr-4">
         <Logo logo="white" />
       </div>
-
+      <!-- Company name for mobile -->
+      <div class="hidden" id="company-name">
+        <h1 class="h1 font-montserrat text-2xl md:text-5xl text-carmine-800 tracking-wide">
+          arbo-servis.cz
+        </h1>
+      </div>
       <!-- Desktop navigation -->
-      <nav class="hidden md:flex md:grow">
+      <nav class="hidden lg:flex lg:grow">
         <!-- Desktop menu links -->
-        <ul class="flex grow justify-start flex-wrap items-center">
+        <ul class="flex grow justify-start flex-wrap items-center gap-2">
           <li>
             <a
               href="/"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >Úvod</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>Úvod</a
             >
           </li>
           <li>
             <a
               href="/nabizene-sluzby"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >Nabízené služby</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/nabizene-sluzby')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>Nabízené služby</a
             >
           </li>
           <li>
             <a
               href="/zajem-o-sluzbu"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >Zajímáte se o službu?</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/zajem-o-sluzbu')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>Zajímáte se o službu?</a
             >
           </li>
           <li>
             <a
               href="/o-nas"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >O nás</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/o-nas')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>O nás</a
             >
           </li>
           <li>
             <a
               href="/cena"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >Cena</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/cena')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>Cena</a
             >
           </li>
           <li>
             <a
               href="/reference"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >Reference</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/reference')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>Reference</a
             >
           </li>
           <li>
             <a
               href="/osvedceni"
-              class="font-medium text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-              >Osvědčení</a
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg ${
+                isActive('/osvedceni')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-latte-800 hover:text-carmine-600 dark:text-latte-400 dark:hover:text-carmine-600 hover:bg-latte-600/5 dark:hover:bg-latte-400/5'
+              }`}>Osvědčení</a
             >
           </li>
         </ul>
@@ -77,10 +113,14 @@ const { mode = 'dark' } = Astro.props;
           <li>
             <a
               href="/kontakt"
-              class="font-medium text-carmine-600 dark:text-latte-300 dark:hover:text-white px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out group bg-latte-600/10 rounded-full"
+              class={`xl:text-lg text-sm font-semibold px-4 lg:px-6 py-3 flex items-center transition duration-200 ease-in-out rounded-lg group ${
+                isActive('/kontakt')
+                  ? 'text-carmine-600 dark:text-carmine-400 bg-carmine-600/10 dark:bg-carmine-400/10'
+                  : 'text-carmine-600 dark:text-latte-300 dark:hover:text-white bg-latte-600/10 dark:bg-latte-400/10 hover:bg-carmine-600/10 dark:hover:bg-carmine-400/10'
+              }`}
             >
               Kontakt <span
-                class="tracking-normal text-carmine-600 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"
+                class="tracking-normal text-carmine-600 group-hover:translate-x-0.5 transition-transform duration-200 ease-in-out ml-1"
                 >-&gt;</span
               >
             </a>
@@ -97,39 +137,85 @@ const { mode = 'dark' } = Astro.props;
   // Wait for DOM to be ready
   document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('header');
+    const companyName = document.getElementById('company-name');
 
-    if (!header) return;
+    if (!header || !companyName) return;
 
-    // Add background to header when scrolled
+    // Configuration
+    const SCROLL_THRESHOLD = 10;
+    const SCROLL_DEBOUNCE_DELAY = 16; // ~60fps
+
+    // State tracking
+    let isScrolled = false;
+    let scrollTimeout: number | null = null;
+
+    // Optimized scroll handler with debouncing
     function handleScroll() {
-      if (window.scrollY > 150) {
-        header.classList.add(
-          'bg-grey-950/80',
-          'backdrop-blur-sm',
-          'border-b',
-          'border-grey-200/50',
-          'sticky'
-        );
-        // Also add dark mode background if needed
-        if (header.classList.contains('dark')) {
-          header.classList.add('dark:bg-grey-950/95', 'dark:border-grey-700/50');
+      if (scrollTimeout) {
+        cancelAnimationFrame(scrollTimeout);
+      }
+
+      scrollTimeout = requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const shouldShow = currentScrollY > SCROLL_THRESHOLD;
+
+        // Only update if state changed (performance optimization)
+        if (shouldShow !== isScrolled) {
+          isScrolled = shouldShow;
+          updateElementVisibility();
         }
-      } else {
-        header.classList.remove(
-          'sticky',
+      });
+    }
+
+    // Separate function for updating element visibility
+    function updateElementVisibility() {
+      if (!companyName || !header) return;
+      if (isScrolled) {
+        // Show company name on mobile when scrolled
+        companyName.classList.remove('hidden');
+        companyName.classList.add('block', 'lg:hidden');
+
+        // Add header background
+        header.classList.add(
           'bg-grey-950/80',
           'backdrop-blur-sm',
           'border-b',
           'border-grey-200/50'
         );
-        header.classList.remove('dark:bg-grey-950/95', 'dark:border-grey-700/50');
+
+        // Add dark mode background if needed
+        if (header.classList.contains('dark')) {
+          header.classList.add('dark:bg-grey-950/95', 'dark:border-grey-700/50');
+        }
+      } else {
+        // Hide company name when at top
+        companyName.classList.remove('block', 'lg:hidden');
+        companyName.classList.add('hidden');
+
+        // Remove header background
+        header.classList.remove(
+          'bg-grey-950/80',
+          'backdrop-blur-sm',
+          'border-b',
+          'border-grey-200/50',
+          'dark:bg-grey-950/95',
+          'dark:border-grey-700/50'
+        );
       }
     }
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
+    // Add scroll event listener with passive option for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Check initial scroll position
     handleScroll();
+
+    // Cleanup function (optional, for SPA navigation)
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) {
+        cancelAnimationFrame(scrollTimeout);
+      }
+    };
   });
 </script>

@@ -1,13 +1,10 @@
 import type { APIRoute } from 'astro';
-import { readdir, stat } from 'fs/promises';
+import { readdir } from 'fs/promises';
 import { join } from 'path';
 
 interface CertificatesItem {
   name: string;
   path: string;
-  size: number;
-  modified: string;
-  thumbnail?: string;
 }
 
 export const GET: APIRoute = async () => {
@@ -23,14 +20,9 @@ export const GET: APIRoute = async () => {
 
       const imageItems = await Promise.all(
         validImageFiles.map(async file => {
-          const filePath = join(certificatesPath, file);
-          const stats = await stat(filePath);
           return {
             name: file,
             path: `/certificates/${file}`,
-            size: stats.size,
-            modified: stats.mtime.toISOString(),
-            type: 'image' as const,
           };
         })
       );
@@ -39,11 +31,6 @@ export const GET: APIRoute = async () => {
     } catch (error) {
       console.warn('Error reading images directory:', error);
     }
-
-    // Sort by modification date (newest first)
-    certificatesItems.sort(
-      (a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime()
-    );
 
     return new Response(JSON.stringify(certificatesItems), {
       status: 200,

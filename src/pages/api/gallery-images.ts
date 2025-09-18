@@ -1,14 +1,11 @@
 import type { APIRoute } from 'astro';
-import { readdir, stat } from 'fs/promises';
+import { readdir } from 'fs/promises';
 import { join } from 'path';
 
 interface GalleryItem {
   name: string;
   path: string;
-  size: number;
-  modified: string;
   type: 'image' | 'video';
-  thumbnail?: string;
 }
 
 export const GET: APIRoute = async () => {
@@ -25,13 +22,9 @@ export const GET: APIRoute = async () => {
 
       const imageItems = await Promise.all(
         validImageFiles.map(async file => {
-          const filePath = join(imagesPath, file);
-          const stats = await stat(filePath);
           return {
             name: file,
             path: `/gallery/images/${file}`,
-            size: stats.size,
-            modified: stats.mtime.toISOString(),
             type: 'image' as const,
           };
         })
@@ -49,25 +42,21 @@ export const GET: APIRoute = async () => {
 
       const videoItems = await Promise.all(
         validVideoFiles.map(async file => {
-          const filePath = join(videosPath, file);
-          const stats = await stat(filePath);
           return {
             name: file,
             path: `/gallery/videos/${file}`,
-            size: stats.size,
-            modified: stats.mtime.toISOString(),
             type: 'video' as const,
           };
         })
       );
 
       galleryItems.push(...videoItems);
+
+      // Shuffle the gallery items
+      galleryItems.sort(() => Math.random() - 0.5);
     } catch (error) {
       console.warn('Error reading videos directory:', error);
     }
-
-    // Sort by modification date (newest first)
-    galleryItems.sort((a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime());
 
     return new Response(JSON.stringify(galleryItems), {
       status: 200,

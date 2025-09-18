@@ -6,9 +6,6 @@ import '../styles/gallery.css';
 interface CertificatesItem {
   name: string;
   path: string;
-  size: number;
-  modified: string;
-  thumbnail?: string;
 }
 
 interface CertificatesData {
@@ -148,6 +145,11 @@ export function CertificatesGalleryRuntimeClient() {
     <div className="relative overflow-hidden w-full h-full py-8">
       <div className="certificates-gallery">
         <div className="certificates-grid">
+          {images.length === 0 && (
+            <div className="text-center">
+              <p className="text-stone-600 text-4xl font-montserrat py-16">V procesu tvorby...</p>
+            </div>
+          )}
           {images.map((item, idx) => (
             <div key={idx} className="certificate-item" onClick={() => setIndex(idx)}>
               <div className="certificate-frame">

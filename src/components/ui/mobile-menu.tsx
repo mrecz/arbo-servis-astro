@@ -2,9 +2,22 @@ import { useState, useRef, useEffect } from 'react';
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
+  const [currentPath, setCurrentPath] = useState<string>('');
 
   const trigger = useRef<HTMLButtonElement>(null);
   const mobileNav = useRef<HTMLDivElement>(null);
+
+  // Get current path on component mount
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  // Helper function to check if a menu item is active
+  const isActive = (path: string): boolean => {
+    if (path === '/' && currentPath === '/') return true;
+    if (path !== '/' && currentPath.startsWith(path)) return true;
+    return false;
+  };
 
   // close the mobile menu on click outside
   useEffect(() => {
@@ -55,7 +68,7 @@ export default function MobileMenu() {
   }, [mobileNavOpen]);
 
   return (
-    <div className="flex md:hidden">
+    <div className="flex lg:hidden">
       {/* Hamburger button */}
       <button
         ref={trigger}
@@ -126,7 +139,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-green-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-green-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -138,7 +155,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/nabizene-sluzby"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-green-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/nabizene-sluzby')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-green-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -150,7 +171,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/zajem-o-sluzbu"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-carmine-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/zajem-o-sluzbu')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-carmine-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -162,7 +187,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/o-nas"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-carmine-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/o-nas')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-carmine-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -174,7 +203,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/cena"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-carmine-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/cena')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-carmine-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -186,7 +219,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/reference"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-carmine-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/reference')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-carmine-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -198,7 +235,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/osvedceni"
-                className="flex font-medium text-latte-800 hover:text-carmine-600 py-4 px-4 rounded-lg hover:bg-carmine-50/50 transition-all duration-200 group"
+                className={`flex text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/osvedceni')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-latte-800 hover:text-carmine-600 hover:bg-carmine-50/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
@@ -210,7 +251,11 @@ export default function MobileMenu() {
             <li>
               <a
                 href="/kontakt"
-                className="flex items-center font-medium text-carmine-600 py-4 px-4 rounded-lg hover:bg-carmine-100/50 transition-all duration-200 group"
+                className={`flex items-center text-lg font-semibold py-4 px-4 rounded-lg transition-all duration-200 group ${
+                  isActive('/kontakt')
+                    ? 'text-carmine-600 bg-carmine-600/10'
+                    : 'text-carmine-600 hover:bg-carmine-100/50'
+                }`}
                 onClick={() => setMobileNavOpen(false)}
               >
                 <span className="group-hover:translate-x-1 transition-transform duration-200">
