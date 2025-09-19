@@ -27,7 +27,7 @@ function isActive(path: string): boolean {
         <Logo logo="white" />
       </div>
       <!-- Company name for mobile -->
-      <div class="hidden" id="company-name">
+      <div class={`lg:hidden ${currentPath === '/' ? 'hidden' : 'block'}`} id="company-name">
         <h1 class="h1 font-montserrat text-2xl md:text-5xl text-carmine-800 tracking-wide">
           arbo-servis.cz
         </h1>
@@ -138,7 +138,7 @@ function isActive(path: string): boolean {
   document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('header');
     const companyName = document.getElementById('company-name');
-
+    const currentPath = window.location.pathname;
     if (!header || !companyName) return;
 
     // Configuration
@@ -170,6 +170,9 @@ function isActive(path: string): boolean {
     // Separate function for updating element visibility
     function updateElementVisibility() {
       if (!companyName || !header) return;
+
+      const isIndexPage = currentPath === '/';
+
       if (isScrolled) {
         // Show company name on mobile when scrolled
         companyName.classList.remove('hidden');
@@ -188,9 +191,16 @@ function isActive(path: string): boolean {
           header.classList.add('dark:bg-grey-950/95', 'dark:border-grey-700/50');
         }
       } else {
-        // Hide company name when at top
-        companyName.classList.remove('block', 'lg:hidden');
-        companyName.classList.add('hidden');
+        // On index page: hide company name when at top
+        // On other pages: always show company name on mobile
+        if (isIndexPage) {
+          companyName.classList.remove('block', 'lg:hidden');
+          companyName.classList.add('hidden');
+        } else {
+          // Always show on non-index pages
+          companyName.classList.remove('hidden');
+          companyName.classList.add('block', 'lg:hidden');
+        }
 
         // Remove header background
         header.classList.remove(
