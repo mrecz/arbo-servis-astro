@@ -44,11 +44,12 @@ export function PhotoGalleryRuntimeClient() {
 
         const galleryItems: GalleryItem[] = await response.json();
 
-        // Convert to photo album format
-        const photoData: PhotoData[] = [];
-        const fullSizeData: { src: string }[] = [];
+        // Initialize empty arrays
+        setImages([]);
+        setFullSizeImages([]);
 
-        for (const item of galleryItems) {
+        // Load images and videos progressively
+        const loadItemProgressive = async (item: GalleryItem, index: number) => {
           try {
             if (item.type === 'image') {
               // Get image dimensions by loading the image
@@ -59,28 +60,41 @@ export function PhotoGalleryRuntimeClient() {
                 img.src = item.path;
               });
 
-              photoData.push({
+              const newImageData = {
                 src: item.path,
                 width: img.naturalWidth,
                 height: img.naturalHeight,
-                type: 'image',
+                type: 'image' as const,
+              };
+
+              const newFullSizeData = {
+                src: item.path,
+              };
+
+              // Add the new image to the existing arrays
+              setImages(prevImages => {
+                const updatedImages = [...prevImages];
+                updatedImages[index] = newImageData;
+                return updatedImages;
               });
 
-              fullSizeData.push({
-                src: item.path,
+              setFullSizeImages(prevFullSize => {
+                const updatedFullSize = [...prevFullSize];
+                updatedFullSize[index] = newFullSizeData;
+                return updatedFullSize;
               });
             } else if (item.type === 'video') {
               // For videos, we'll use default dimensions and create a video element
               // The actual dimensions will be determined by the video element
-              photoData.push({
+              const newVideoData = {
                 src: item.path,
                 width: 800, // Default width for videos
                 height: 600, // Default height for videos
-                type: 'video',
-              });
+                type: 'video' as const,
+              };
 
               // For Lightbox, we need to provide video format
-              fullSizeData.push({
+              const newFullSizeData = {
                 type: 'video',
                 sources: [
                   {
@@ -88,21 +102,35 @@ export function PhotoGalleryRuntimeClient() {
                     type: 'video/mp4',
                   },
                 ],
-              } as any);
+              } as any;
+
+              // Add the new video to the existing arrays
+              setImages(prevImages => {
+                const updatedImages = [...prevImages];
+                updatedImages[index] = newVideoData;
+                return updatedImages;
+              });
+
+              setFullSizeImages(prevFullSize => {
+                const updatedFullSize = [...prevFullSize];
+                updatedFullSize[index] = newFullSizeData;
+                return updatedFullSize;
+              });
             }
           } catch (error) {
             console.warn(`Failed to load ${item.type} ${item.name}:`, error);
             // Use default dimensions for failed items
-            photoData.push({
+            const fallbackData = {
               src: item.path,
               width: 800,
               height: 600,
               type: item.type,
-            });
+            };
 
             // Handle fallback for both images and videos
+            let fallbackFullSizeData;
             if (item.type === 'video') {
-              fullSizeData.push({
+              fallbackFullSizeData = {
                 type: 'video',
                 sources: [
                   {
@@ -110,17 +138,38 @@ export function PhotoGalleryRuntimeClient() {
                     type: 'video/mp4',
                   },
                 ],
-              } as any);
+              } as any;
             } else {
-              fullSizeData.push({
+              fallbackFullSizeData = {
                 src: item.path,
-              });
+              };
             }
-          }
-        }
 
-        setImages(photoData);
-        setFullSizeImages(fullSizeData);
+            setImages(prevImages => {
+              const updatedImages = [...prevImages];
+              updatedImages[index] = fallbackData;
+              return updatedImages;
+            });
+
+            setFullSizeImages(prevFullSize => {
+              const updatedFullSize = [...prevFullSize];
+              updatedFullSize[index] = fallbackFullSizeData;
+              return updatedFullSize;
+            });
+          }
+        };
+
+        // Initialize arrays with the correct length
+        const initialImages = new Array(galleryItems.length).fill(null);
+        const initialFullSize = new Array(galleryItems.length).fill(null);
+        setImages(initialImages);
+        setFullSizeImages(initialFullSize);
+
+        // Load all items concurrently
+        const loadPromises = galleryItems.map((item, index) => loadItemProgressive(item, index));
+
+        // Wait for all items to be processed (but they'll appear progressively)
+        await Promise.allSettled(loadPromises);
       } catch (err) {
         console.error('Error loading gallery images:', err);
         setError(err instanceof Error ? err.message : 'Failed to load images');
@@ -191,38 +240,51 @@ export function PhotoGalleryRuntimeClient() {
     <div className="relative overflow-hidden w-full h-full py-20">
       <div className="styled-gallery">
         <div className="masonry-grid">
-          {images.map((item, idx) => (
-            <div key={idx} className="masonry-item" onClick={() => setIndex(idx)}>
-              {item.type === 'video' ? (
-                <div className="video-wrapper">
-                  <video
-                    src={item.src}
-                    className="gallery-video"
-                    preload="metadata"
-                    muted
-                    loop
-                    onMouseEnter={e => e.currentTarget.play()}
-                    onMouseLeave={e => e.currentTarget.pause()}
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="video-play-overlay">
-                    <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+          {images.map((item, idx) => {
+            // Show loading placeholder for items that haven't loaded yet
+            if (!item) {
+              return (
+                <div key={idx} className="masonry-item">
+                  <div className="gallery-image bg-stone-200 animate-pulse flex items-center justify-center min-h-[200px]">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-carmine-700"></div>
                   </div>
                 </div>
-              ) : (
-                <img src={item.src} alt={`Gallery item ${idx + 1}`} className="gallery-image" />
-              )}
-            </div>
-          ))}
+              );
+            }
+
+            return (
+              <div key={idx} className="masonry-item" onClick={() => setIndex(idx)}>
+                {item.type === 'video' ? (
+                  <div className="video-wrapper">
+                    <video
+                      src={item.src}
+                      className="gallery-video"
+                      preload="metadata"
+                      muted
+                      loop
+                      onMouseEnter={e => e.currentTarget.play()}
+                      onMouseLeave={e => e.currentTarget.pause()}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                    <div className="video-play-overlay">
+                      <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                ) : (
+                  <img src={item.src} alt={`Gallery item ${idx + 1}`} className="gallery-image" />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
       <Lightbox
         plugins={[Video]}
         index={index}
-        slides={fullSizeImages}
+        slides={fullSizeImages.filter(img => img !== null)}
         open={index >= 0}
         close={() => setIndex(-1)}
       />

@@ -36,11 +36,12 @@ export function CertificatesGalleryRuntimeClient() {
 
         const galleryItems: CertificatesItem[] = await response.json();
 
-        // Convert to photo album format
-        const certificatesData: CertificatesData[] = [];
-        const fullSizeData: { src: string }[] = [];
+        // Initialize empty arrays
+        setImages([]);
+        setFullSizeImages([]);
 
-        for (const item of galleryItems) {
+        // Load images progressively
+        const loadImageProgressive = async (item: CertificatesItem, index: number) => {
           try {
             // Get image dimensions by loading the image
             const img = new Image();
@@ -50,32 +51,66 @@ export function CertificatesGalleryRuntimeClient() {
               img.src = item.path;
             });
 
-            certificatesData.push({
+            const newImageData = {
               src: item.path,
               width: img.naturalWidth,
               height: img.naturalHeight,
+            };
+
+            const newFullSizeData = {
+              src: item.path,
+            };
+
+            // Add the new image to the existing arrays
+            setImages(prevImages => {
+              const updatedImages = [...prevImages];
+              updatedImages[index] = newImageData;
+              return updatedImages;
             });
 
-            fullSizeData.push({
-              src: item.path,
+            setFullSizeImages(prevFullSize => {
+              const updatedFullSize = [...prevFullSize];
+              updatedFullSize[index] = newFullSizeData;
+              return updatedFullSize;
             });
           } catch (error) {
             console.warn(`Failed to load ${item.name}:`, error);
             // Use default dimensions for failed items
-            certificatesData.push({
+            const fallbackImageData = {
               src: item.path,
               width: 800,
               height: 600,
+            };
+
+            const fallbackFullSizeData = {
+              src: item.path,
+            };
+
+            setImages(prevImages => {
+              const updatedImages = [...prevImages];
+              updatedImages[index] = fallbackImageData;
+              return updatedImages;
             });
 
-            fullSizeData.push({
-              src: item.path,
+            setFullSizeImages(prevFullSize => {
+              const updatedFullSize = [...prevFullSize];
+              updatedFullSize[index] = fallbackFullSizeData;
+              return updatedFullSize;
             });
           }
-        }
+        };
 
-        setImages(certificatesData);
-        setFullSizeImages(fullSizeData);
+        // Initialize arrays with the correct length
+        const initialImages = new Array(galleryItems.length).fill(null);
+        const initialFullSize = new Array(galleryItems.length).fill(null);
+        setImages(initialImages);
+        setFullSizeImages(initialFullSize);
+
+        // Load all images concurrently
+        const loadPromises = galleryItems.map((item, index) => loadImageProgressive(item, index));
+
+        // Wait for all images to be processed (but they'll appear progressively)
+        await Promise.allSettled(loadPromises);
       } catch (err) {
         console.error('Error loading certificates images:', err);
         setError(err instanceof Error ? err.message : 'Failed to load images');
@@ -145,49 +180,64 @@ export function CertificatesGalleryRuntimeClient() {
     <div className="relative overflow-hidden w-full h-full py-8">
       <div className="certificates-gallery">
         <div className="certificates-grid">
-          {images.length === 0 && (
+          {images.length === 0 && !loading && (
             <div className="text-center">
               <p className="text-stone-600 text-4xl font-montserrat py-16">V procesu tvorby...</p>
             </div>
           )}
-          {images.map((item, idx) => (
-            <div key={idx} className="certificate-item" onClick={() => setIndex(idx)}>
-              <div className="certificate-frame">
-                <img src={item.src} alt={`Certifikát ${idx + 1}`} className="certificate-image" />
-                <div className="certificate-overlay">
-                  <div className="certificate-icon">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                      />
-                    </svg>
+          {images.map((item, idx) => {
+            // Show loading placeholder for images that haven't loaded yet
+            if (!item) {
+              return (
+                <div key={idx} className="certificate-item">
+                  <div className="certificate-frame">
+                    <div className="certificate-image bg-stone-200 animate-pulse flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-carmine-700"></div>
+                    </div>
                   </div>
-                  <div className="certificate-label">
-                    <span className="text-sm font-medium text-white">Zobrazit certifikát</span>
+                </div>
+              );
+            }
+
+            return (
+              <div key={idx} className="certificate-item" onClick={() => setIndex(idx)}>
+                <div className="certificate-frame">
+                  <img src={item.src} alt={`Certifikát ${idx + 1}`} className="certificate-image" />
+                  <div className="certificate-overlay">
+                    <div className="certificate-icon">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="certificate-label">
+                      <span className="text-sm font-medium text-white">Zobrazit certifikát</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <Lightbox
         index={index}
-        slides={fullSizeImages}
+        slides={fullSizeImages.filter(img => img !== null)}
         open={index >= 0}
         close={() => setIndex(-1)}
       />
